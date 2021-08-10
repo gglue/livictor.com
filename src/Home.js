@@ -1,6 +1,7 @@
 import {Container, Row, Col, Card} from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.css";
 function Home() {
+
     return (
         <nav className="home">
             <Container>
@@ -15,8 +16,8 @@ function Home() {
                                 <Card.Text>I don't think I'll update this site very much, most of it is
                                 is automated, but feel free to check out my <b><a href="#personal">X Personal Projects </a></b>
                                 I made while bored, or one of my <b><a href="#coop">Y Cooperative Works</a></b> that I worked with friends, or as a commission.</Card.Text>
-                                <Card.Text>Want to know more about me? Want to work together? Well, free free to <b><a href="#contact">Contact Me!</a></b></Card.Text>
-                                <Card.Text>Website last manually updated: July-29-2021</Card.Text>
+                                <Card.Text>Want to know more about me? Want to work together? Feel free to <b><a href="#contact">Contact Me!</a></b></Card.Text>
+                                <Card.Text>Website last updated: July-29-2021</Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>
