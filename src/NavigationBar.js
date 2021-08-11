@@ -10,12 +10,12 @@ function NavigationBar() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link ><Link to ="/">Home</Link></Nav.Link>
-                            <Nav.Link ><Link to ="/skills">Skills</Link></Nav.Link>
-                            <Nav.Link ><Link to ="/contact">Contact</Link></Nav.Link>
+                            <Link to ="/" className ="nav-link">Home</Link>
+                            <Link to ="/skills" className ="nav-link">Skills</Link>
+                            <Link to ="/contact" className ="nav-link">Contact</Link>
                             <NavDropdown title="Portfolio" id="basic-nav-dropdown">
-                                <NavDropdown.Item><Link to ="/projects">Personal Projects</Link></NavDropdown.Item>
-                                <NavDropdown.Item><Link to ="/cooperative">Cooperative Works</Link></NavDropdown.Item>
+                                <Link to ="/projects" className ="dropdown-item">Personal Projects</Link>
+                                <Link to ="/cooperative" className ="dropdown-item">Cooperative Works</Link>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
