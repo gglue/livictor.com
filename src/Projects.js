@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 function Projects(){
     const [projects, setProjects] = useState(null);
+    const [loading, setLoading] = useState(true);
     var counter = 0;
     const tester = useRef(null);
     
@@ -13,7 +14,12 @@ function Projects(){
             return res.json();
         })
         .then(data => {
-            setProjects(data);
+            const newData = data.filter(function (el){
+                return el.name != "gglue" &&
+                el.name != "gglue.github.io";
+            });
+            setProjects(newData);
+            setLoading(false);
         })
         .catch((err) => {
             console.log(err);
@@ -35,7 +41,6 @@ function Projects(){
         const arrayRows = [];
         for (let x = 0; x < numberOfRows; x++){
             arrayRows.push(React.createElement(Components["row"], {}, printCols()));
-            arrayRows.push(React.createElement())
         }
         return arrayRows;
     }
@@ -43,28 +48,30 @@ function Projects(){
     function printCols(){
         const arrayCols = [];
         for (let x = 0; x < 4; x ++){
-            if (counter === 9) break;
+            if (counter === projects.length) break;
             arrayCols.push(React.createElement(Components["col"], {xs :"3"}, printCard()));
         }
         return arrayCols;
     }
 
     function printCard(){
-        return React.createElement(Components["card"], {}, printCardDescription());
+        return React.createElement(Components["card"], {}, 
+            React.createElement("a", {href : projects[counter].html_url}, printCardDescription())
+            );
     }
 
     function printCardDescription(){
         return React.createElement(Components["cardBody"], {}, [
             React.createElement(Components["cardTitle"], {}, projects[counter].name),
             React.createElement(Components["cardText"], {}, projects[counter].description),
-            React.createElement(Components["cardText"], {}, projects[counter++].created_at)
+            React.createElement(Components["cardText"], {}, projects[counter++].language)
         ]);
     }
 
     return (
         <nav className = "projects">
             <Container>
-              {printRows()}
+                {loading ? <div>Loading :)</div> : printRows()}
             </Container>
         </nav>
     );
