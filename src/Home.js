@@ -1,7 +1,10 @@
 import {Container, Row, Col, Card} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import {useEffect, useState} from 'react';
+import { formatDistanceStrict } from 'date-fns';
 import "bootstrap/dist/css/bootstrap.css";
+
+
 function Home() {
     const [numberProjects, changeNumber] = useState(0);
     const [lastUpdated, changeDate] = useState("can't fetch it");
@@ -36,9 +39,8 @@ function Home() {
                         <Card>
                             <Card.Body>
                                 <Card.Title><h2>Hi! My name is Victor :)</h2></Card.Title>
-                                <Card.Text>I'm a 20 year old Computer Science student attending Western University! I am an avid fan
-                                    of RPGs and aspire to start my own video game development company one day! To achieve my dreams,
-                                    I have been honing my <b><Link to = "/skills">Skills!</Link></b></Card.Text>
+                                <Card.Text>I'm {formatDistanceStrict(new Date(), new Date("12/16/00"))} old and a student attending Western University for Computer Science! I am an avid fan
+                                    of RPGs and aspire to start my own video game development company one day!</Card.Text>
                                 <Card.Text>I don't think I'll update this site very much, most of it is
                                 is automated, but feel free to check out my <b><Link to="/projects">{numberProjects} Personal Projects </Link></b>
                                 I made while bored, or one of my <b><Link to ="/coop">0 Cooperative Works</Link></b> that I worked with friends, or as a commission.</Card.Text>

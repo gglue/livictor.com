@@ -2,6 +2,8 @@ import NavigationBar from './NavigationBar';
 import Home from './Home';
 import Contact from './Contact';
 import Projects from './Projects';
+import Cooperative from './Cooperative';
+import NotFound from './NotFound';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 function App() {
 
@@ -20,8 +22,11 @@ function App() {
             <Route path ="/projects">
               <Projects />
             </Route>
+            <Route path = "/cooperative">
+              <Cooperative />
+            </Route>
             <Route path ="*">
-              <Contact />
+              <NotFound />
             </Route>
           </Switch>
         </div>

@@ -1,26 +1,66 @@
 import {Container, Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import {motion} from 'framer-motion';
 import "bootstrap/dist/css/bootstrap.css";
+
+const naviVariant = {
+    hidden: {
+        y: -250,
+    },
+    visible: {
+        y: 0,
+        transition : {
+            //mass: 0.4, damping :8
+            delay : 0.2, type : 'spring', stiffness: 125, //when: "beforeChildren",
+            //staggerChildren: 5, stagger and when doesn't work for some reason idek
+        }
+    }
+}
+
+const buttonVariant = {
+    hover: {
+        scale: 1.2
+    },
+    hidden: {
+        opacity: 0
+    },
+    visible: {
+        opacity: 1,
+        transition : {delay : 1}
+    }
+}
+
 function NavigationBar() {
     return (  
         <nav className="navigationBar">
-            <Navbar expand="lg">
-                <Container>
-                    <Navbar.Brand>livictor.com</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                            <Link to ="/" className ="nav-link">Home</Link>
-                            <Link to ="/skills" className ="nav-link">Skills</Link>
-                            <Link to ="/contact" className ="nav-link">Contact</Link>
-                            <NavDropdown title="Portfolio" id="basic-nav-dropdown">
-                                <Link to ="/projects" className ="dropdown-item">Personal Projects</Link>
-                                <Link to ="/cooperative" className ="dropdown-item">Cooperative Works</Link>
-                            </NavDropdown>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+            <motion.div variants={naviVariant} initial = "hidden" animate= "visible">
+                <Navbar expand="lg">
+                    <Container>
+                        <Navbar.Brand>livictor.com</Navbar.Brand>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav className="me-auto">
+                                <motion.div variants={buttonVariant} whileHover = "hover" initial = "hidden" animate= "visible">
+                                    <Link to ="/" className ="nav-link">Home</Link>
+                                </motion.div>
+                                <motion.div variants={buttonVariant} whileHover = "hover" initial = "hidden" animate= "visible">
+                                    <Link to ="/contact" className ="nav-link">Contact</Link>
+                                </motion.div>
+                                <motion.div variants={buttonVariant} initial = "hidden" animate= "visible">
+                                    <NavDropdown title="Portfolio" id="basic-nav-dropdown">
+                                        <motion.div variants={buttonVariant} whileHover = "hover">
+                                            <Link to ="/projects" className ="dropdown-item nav-link">Projects</Link>
+                                        </motion.div>
+                                        <motion.div variants={buttonVariant} whileHover = "hover">
+                                            <Link to ="/cooperative" className ="dropdown-item nav-link">Collab Works</Link>
+                                        </motion.div>
+                                    </NavDropdown>
+                                </motion.div>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Container>
+                </Navbar>
+            </motion.div>
         </nav>
     );
 }
