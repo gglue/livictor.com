@@ -4,34 +4,35 @@ import Contact from './Contact';
 import Projects from './Projects';
 import Cooperative from './Cooperative';
 import NotFound from './NotFound';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {Route, Switch, useLocation} from 'react-router-dom';
+import { AnimatePresence} from 'framer-motion';
 function App() {
-
+  const location = useLocation();
   return (
-    <Router>
       <div className="App">
         <div className="content">
           <NavigationBar />
-          <Switch>
-            <Route exact path="/">
-              <Home /> 
-            </Route>
-            <Route path ="/contact">
-              <Contact />
-            </Route>
-            <Route path ="/projects">
-              <Projects />
-            </Route>
-            <Route path = "/cooperative">
-              <Cooperative />
-            </Route>
-            <Route path ="*">
-              <NotFound />
-            </Route>
-          </Switch>
+          <AnimatePresence>
+            <Switch location ={location} key = {location.key}>
+              <Route exact path="/">
+                <Home /> 
+              </Route>
+              <Route path ="/contact">
+                <Contact />
+              </Route>
+              <Route path ="/projects">
+                <Projects />
+              </Route>
+              <Route path = "/cooperative">
+                <Cooperative />
+              </Route>
+              <Route path ="*">
+                <NotFound />
+              </Route>
+            </Switch>
+            </AnimatePresence>
         </div>
       </div>
-    </Router>
   );
 }
 

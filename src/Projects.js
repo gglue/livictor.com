@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Row, Col, Card} from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.css";
+import { motion } from 'framer-motion';
 
 function Projects(){
     const [projects, setProjects] = useState(null);
@@ -39,6 +40,25 @@ function Projects(){
         cardBody : Card.Body,
         cardTitle: Card.Title,
         cardText: Card.Text,
+        motionDiv: motion.div,
+    };
+
+    const cardVariant = {
+        hidden : {
+            x: -1250
+        },
+        visible : {
+            x: 0,
+            transition : {
+                //mass: 0.4, damping :8
+                delay : 0.2, type : 'spring', stiffness: 125, //when: "beforeChildren",
+                //staggerChildren: 5, stagger and when doesn't work for some reason idek
+            }
+        },
+        exit: {
+            x: 1250,
+            transition: {ease: 'easeInOut'}
+        }
     };
 
     function printRows(){
@@ -61,7 +81,8 @@ function Projects(){
     }
 
     function printCard(){
-        return React.createElement(Components["card"], {}, React.createElement("a", {href : projects[counter].html_url}, printCardDescription()));
+        return React.createElement(Components["motionDiv"], {variants: cardVariant, initial : "hidden", animate : "visible", exit : "exit"}, 
+            React.createElement(Components["card"], {}, React.createElement("a", {href : projects[counter].html_url}, printCardDescription())));
     }
 
     function printCardDescription(){

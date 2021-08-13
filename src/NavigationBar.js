@@ -3,34 +3,39 @@ import {Link} from 'react-router-dom';
 import {motion} from 'framer-motion';
 import "bootstrap/dist/css/bootstrap.css";
 
-const naviVariant = {
-    hidden: {
-        y: -250,
-    },
-    visible: {
-        y: 0,
-        transition : {
-            //mass: 0.4, damping :8
-            delay : 0.2, type : 'spring', stiffness: 125, //when: "beforeChildren",
-            //staggerChildren: 5, stagger and when doesn't work for some reason idek
-        }
-    }
-}
-
-const buttonVariant = {
-    hover: {
-        scale: 1.2
-    },
-    hidden: {
-        opacity: 0
-    },
-    visible: {
-        opacity: 1,
-        transition : {delay : 1}
-    }
-}
 
 function NavigationBar() {
+    
+    const naviVariant = {
+        hidden: {
+            y: -250,
+        },
+        visible: {
+            y: 0,
+            transition : {
+                //mass: 0.4, damping :8
+                delay : 0.2, type : 'spring', stiffness: 125, //when: "beforeChildren",
+                //staggerChildren: 5, stagger and when doesn't work for some reason idek
+            }
+        }
+    }
+    
+    const buttonVariant = {
+        hover: {
+            scale: 1.2,
+            transition:{
+                yoyo: Infinity
+            }
+        },
+        hidden: {
+            opacity: 0
+        },
+        visible: {
+            opacity: 1,
+            transition : {delay : 1}
+        }
+    }
+
     return (  
         <nav className="navigationBar">
             <motion.div variants={naviVariant} initial = "hidden" animate= "visible">
