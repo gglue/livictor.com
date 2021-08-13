@@ -4,6 +4,9 @@ import {useEffect, useState} from 'react';
 import { formatDistanceStrict } from 'date-fns';
 import {motion} from 'framer-motion';
 import "bootstrap/dist/css/bootstrap.css";
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react';
 
 function Home() {
     
@@ -27,6 +30,7 @@ function Home() {
 
     const [numberProjects, changeNumber] = useState(0);
     const [lastUpdated, changeDate] = useState("can't fetch it");
+
     useEffect(() => {
         const abortCont = new AbortController();
 
