@@ -1,5 +1,5 @@
 import {Container, Navbar, Nav, NavDropdown} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import {motion} from 'framer-motion';
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -46,20 +46,16 @@ function NavigationBar() {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
                                 <motion.div variants={buttonVariant} whileHover = "hover" initial = "hidden" animate= "visible">
-                                    <Link to ="/" className ="nav-link">Home</Link>
+                                    <NavLink exact to ="/" activeClassName="selected" activeStyle={{color: "white", background: "black"}} className ="nav-link">Home</NavLink>
+                                </motion.div>
+                                <motion.div variants={buttonVariant} initial = "hidden" animate= "visible" whileHover = "hover">
+                                    <NavLink to ="/projects" activeClassName="selected" activeStyle={{color: "white", background: "black"}} className ="nav-link">Projects</NavLink>
+                                </motion.div>
+                                <motion.div variants={buttonVariant} whileHover = "hover">
+                                    <NavLink to ="/cooperative" activeClassName="selected" activeStyle={{color: "white", background: "black"}} className ="nav-link">Collab</NavLink>
                                 </motion.div>
                                 <motion.div variants={buttonVariant} whileHover = "hover" initial = "hidden" animate= "visible">
-                                    <Link to ="/contact" className ="nav-link">Contact</Link>
-                                </motion.div>
-                                <motion.div variants={buttonVariant} initial = "hidden" animate= "visible">
-                                    <NavDropdown title="Portfolio" id="basic-nav-dropdown">
-                                        <motion.div variants={buttonVariant} whileHover = "hover">
-                                            <Link to ="/projects" className ="dropdown-item nav-link">Projects</Link>
-                                        </motion.div>
-                                        <motion.div variants={buttonVariant} whileHover = "hover">
-                                            <Link to ="/cooperative" className ="dropdown-item nav-link">Collab Works</Link>
-                                        </motion.div>
-                                    </NavDropdown>
+                                    <NavLink to ="/contact" activeClassName="selected" activeStyle={{color: "white", background: "black"}} className ="nav-link">Contact</NavLink>
                                 </motion.div>
                             </Nav>
                         </Navbar.Collapse>

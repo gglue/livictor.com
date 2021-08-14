@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {Container, Row, Col, Card} from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.css";
 import { motion } from 'framer-motion';
@@ -55,10 +55,12 @@ function Projects(){
             }
         },
         hidden : {
-            x: -1250
+            x: -1250,
+            opacity : 0,
         },
         visible : {
             x: 0,
+            opacity : 1,
             transition : {
                 //mass: 0.4, damping :8
                 delay : 0.2, type : 'spring', stiffness: 125, //when: "beforeChildren",

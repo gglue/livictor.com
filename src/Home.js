@@ -4,9 +4,6 @@ import {useEffect, useState} from 'react';
 import { formatDistanceStrict } from 'date-fns';
 import {motion} from 'framer-motion';
 import "bootstrap/dist/css/bootstrap.css";
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx, css } from '@emotion/react';
 
 function Home() {
     
