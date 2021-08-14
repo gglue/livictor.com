@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import {Container, Row, Col, Card} from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.css";
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
@@ -51,7 +51,9 @@ function Projects(){
         hover: {
             scale: 1.2,
             transition:{
-                yoyo: Infinity
+                duration: 0.25,
+                repeat: Infinity,
+                repeatType: "reverse"
             }
         },
         hidden : {

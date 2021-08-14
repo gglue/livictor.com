@@ -1,4 +1,4 @@
-import {Container, Navbar, Nav, NavDropdown} from 'react-bootstrap';
+import {Container, Navbar, Nav} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 import {motion} from 'framer-motion';
 import "bootstrap/dist/css/bootstrap.css";
@@ -24,7 +24,9 @@ function NavigationBar() {
         hover: {
             scale: 1.2,
             transition:{
-                yoyo: Infinity
+                duration: 0.25,
+                repeat: Infinity,
+                repeatType: "reverse"
             }
         },
         hidden: {
@@ -51,7 +53,7 @@ function NavigationBar() {
                                 <motion.div variants={buttonVariant} initial = "hidden" animate= "visible" whileHover = "hover">
                                     <NavLink to ="/projects" activeClassName="selected" activeStyle={{color: "white", background: "black"}} className ="nav-link">Projects</NavLink>
                                 </motion.div>
-                                <motion.div variants={buttonVariant} whileHover = "hover">
+                                <motion.div variants={buttonVariant} initial = "hidden" animate= "visible" whileHover = "hover">
                                     <NavLink to ="/cooperative" activeClassName="selected" activeStyle={{color: "white", background: "black"}} className ="nav-link">Collab</NavLink>
                                 </motion.div>
                                 <motion.div variants={buttonVariant} whileHover = "hover" initial = "hidden" animate= "visible">
