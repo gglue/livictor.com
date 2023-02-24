@@ -53,9 +53,6 @@ function NavigationBar() {
                                 <motion.div variants={buttonVariant} initial = "hidden" animate= "visible" whileHover = "hover">
                                     <NavLink to ="/projects" activeClassName="selected" activeStyle={{color: "white", background: "black"}} className ="nav-link">Projects</NavLink>
                                 </motion.div>
-                                <motion.div variants={buttonVariant} initial = "hidden" animate= "visible" whileHover = "hover">
-                                    <NavLink to ="/cooperative" activeClassName="selected" activeStyle={{color: "white", background: "black"}} className ="nav-link">Collab</NavLink>
-                                </motion.div>
                                 <motion.div variants={buttonVariant} whileHover = "hover" initial = "hidden" animate= "visible">
                                     <NavLink to ="/contact" activeClassName="selected" activeStyle={{color: "white", background: "black"}} className ="nav-link">Contact</NavLink>
                                 </motion.div>

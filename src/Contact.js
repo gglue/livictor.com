@@ -35,7 +35,7 @@ function Contact() {
                                     <Card.Text><a href="tel:647-710-8780">Cellphone: 647-710-8780</a></Card.Text>
                                     <Card.Text><a href="mailto:livictor@protonmail.com">E-mail: livictor@protonmail.com</a></Card.Text>
                                     <Card.Text><a href="https://steamcommunity.com/id/gglue/">Steam: /id/gglue</a></Card.Text>
-                                    <Card.Text>Discord: gglue#1312</Card.Text>
+                                    <Card.Text>Discord: gglue#3953</Card.Text>
                                 </Card.Body>
                             </Card>
                         </motion.div>

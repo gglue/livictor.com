@@ -61,9 +61,9 @@ function Home() {
                                 <Card.Body>
                                     <Card.Title><h2>Hi! My name is Victor :)</h2></Card.Title>
                                     <Card.Text>I'm {formatDistanceStrict(new Date(), new Date("12/16/00"))} old and a student attending Western University for Computer Science! I am an avid fan
-                                        of RPGs and aspire to start my own video game development company one day!</Card.Text>
-                                    <Card.Text>Most of this site is automated, but feel free to check out my <b><Link to="/projects">{numberProjects} Personal Projects </Link></b>
-                                    I made while bored, or one of the <b><Link to ="/coop">0 Collaborative Works</Link></b> that I worked with friends on!</Card.Text>
+                                        of video games and aspire to start my own video game development company one day!</Card.Text>
+                                    <Card.Text>Feel free to check out my <b><Link to="/projects">{numberProjects} Personal Projects </Link></b>
+                                    I developed while on my coding journey!</Card.Text>
                                     <Card.Text>Want to know more about me? Want to work together? Feel free to <b><Link to ="/contact">Contact Me!</Link></b></Card.Text>
                                     <Card.Text>Website last updated: {lastUpdated.substring(0,10)}</Card.Text>
                                 </Card.Body>
