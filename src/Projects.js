@@ -12,7 +12,11 @@ function Projects(){
     useEffect(() => {
         axios.get("https://api.github.com/users/gglue/repos")
             .then(res => {
-                setProjects(res.data);
+                const newData = res.data.filter(function (el){
+                    return el.name !== "gglue" &&
+                        el.name !== "gglue.github.io";
+                });
+                setProjects(newData);
                 setLoading(false);
             })
       }, []);

@@ -38,6 +38,7 @@ function NavigationBar() {
         }
     }
 
+    let activeStyle={color: "white", background: "black"};
     return (  
         <nav className="navigationBar">
             <motion.div variants={naviVariant} initial = "hidden" animate= "visible">
@@ -48,13 +49,13 @@ function NavigationBar() {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
                                 <motion.div variants={buttonVariant} whileHover = "hover" initial = "hidden" animate= "visible">
-                                    <NavLink exact to ="/" activeClassName="selected" activeStyle={{color: "white", background: "black"}} className ="nav-link">Home</NavLink>
+                                    <NavLink exact to ="/" style={({ isActive }) => isActive ? activeStyle : undefined}  className ="nav-link">Home</NavLink>
                                 </motion.div>
                                 <motion.div variants={buttonVariant} initial = "hidden" animate= "visible" whileHover = "hover">
-                                    <NavLink to ="/projects" activeClassName="selected" activeStyle={{color: "white", background: "black"}} className ="nav-link">Projects</NavLink>
+                                    <NavLink to ="/projects" style={({ isActive }) => isActive ? activeStyle : undefined} className ="nav-link">Projects</NavLink>
                                 </motion.div>
                                 <motion.div variants={buttonVariant} whileHover = "hover" initial = "hidden" animate= "visible">
-                                    <NavLink to ="/contact" activeClassName="selected" activeStyle={{color: "white", background: "black"}} className ="nav-link">Contact</NavLink>
+                                    <NavLink to ="/contact" style={({ isActive }) => isActive ? activeStyle : undefined} className ="nav-link">Contact</NavLink>
                                 </motion.div>
                             </Nav>
                         </Navbar.Collapse>

@@ -3,8 +3,8 @@ import Home from './Home';
 import Contact from './Contact';
 import Projects from './Projects';
 import NotFound from './NotFound';
-import {Route, Switch, useLocation} from 'react-router-dom';
-import { AnimatePresence} from 'framer-motion';
+import {Route, Routes, useLocation} from 'react-router-dom';
+import {AnimatePresence} from 'framer-motion';
 function App() {
   const location = useLocation();
   return (
@@ -12,20 +12,12 @@ function App() {
         <div className="content">
           <NavigationBar />
           <AnimatePresence>
-            <Switch location ={location} key = {location.key}>
-              <Route exact path="/">
-                <Home /> 
-              </Route>
-              <Route path ="/contact">
-                <Contact />
-              </Route>
-              <Route path ="/projects">
-                <Projects />
-              </Route>
-              <Route path ="*">
-                <NotFound />
-              </Route>
-            </Switch>
+            <Routes location ={location} key = {location.key}>
+              <Route exact path="/" element={<Home/>}></Route>
+              <Route path ="/contact" element={<Contact/>}></Route>
+              <Route path ="/projects" element={<Projects/>}></Route>
+              <Route path ="*" element={<NotFound />}></Route>
+            </Routes>
             </AnimatePresence>
         </div>
       </div>
