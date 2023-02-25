@@ -57,7 +57,13 @@ function Projects(){
                             <Card.Body>
                                 <Card.Title>{project.name}</Card.Title>
                                 <Card.Text>{project.description}</Card.Text>
-                                <Card.Text>{project.language}</Card.Text>
+                                <Card.Text>
+                                    {project.language + " "}
+                                    {
+                                    project.topics.map(topic => (
+                                        topic[0].toUpperCase() + topic.slice(1) + " "
+                                    ))
+                                }</Card.Text>
                             </Card.Body>
                         </Card>
                     </a>
